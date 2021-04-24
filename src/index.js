@@ -1,6 +1,7 @@
-
 import { svg } from './svg.js'
-const pdf = new PDFDocument()
 
 
-console.log(pdf, svg())
+
+
+
+console.log(new PDFDocument(), svg())

@@ -1,31 +1,47 @@
 {
-  "name": "svg2pdf-boilerplate",
-  "version": "1.0.0",
-  "description": "for SVG output to PDF WebApps",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leografx/svg2pdf-boilerplate.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/leografx/svg2pdf-boilerplate/issues"
-  },
-  "homepage": "https://github.com/leografx/svg2pdf-boilerplate#readme",
-  "dependencies": {
-    "brfs": "^2.0.2",
-    "browserify": "^17.0.0",
-    "pdfkit": "^0.12.1",
-    "svg2pdf": "^1.1.1"
-  },
-  "devDependencies": {
-    "webpack": "^5.35.0",
-    "webpack-cli": "^4.6.0"
-  }
+    "name": "svg2pdf-boilerplate",
+    "version": "1.0.0",
+    "description": "for SVG output to PDF WebApps",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack serve",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "NODE_ENV=production webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leografx/svg2pdf-boilerplate.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/leografx/svg2pdf-boilerplate/issues"
+    },
+    "homepage": "https://github.com/leografx/svg2pdf-boilerplate#readme",
+    "dependencies": {
+        "@babel/plugin-proposal-decorators": "^7.13.15",
+        "babel-loader": "^8.2.2",
+        "babelify": "^10.0.0",
+        "brfs": "^2.0.2",
+        "browserify": "^17.0.0",
+        "css-loader": "^5.2.4",
+        "file-loader": "^6.2.0",
+        "json-loader": "^0.5.7",
+        "pdfkit": "^0.12.1",
+        "sass-loader": "^11.0.1",
+        "stream-browserify": "^3.0.0",
+        "style-loader": "^2.0.0",
+        "svg2pdf": "^1.1.1",
+        "transform-loader": "^0.2.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.13.16",
+        "@babel/preset-env": "^7.13.15",
+        "html-webpack-plugin": "^5.3.1",
+        "ts-loader": "^9.1.1",
+        "webpack": "^5.35.0",
+        "webpack-cli": "^4.6.0",
+        "webpack-dev-server": "^3.11.2"
+    }
 }
