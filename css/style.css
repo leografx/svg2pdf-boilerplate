@@ -1,3 +1,9 @@
+:root {
+    --bg : #3b2e2e;
+    --bg-dark: #2e2525;
+    --light:#ddd;
+}
+
 @font-face {
     font-family: 'Roboto-Light';
     src: url('../fonts/Roboto-Light.eot'); /* IE9 Compat Modes */
@@ -24,51 +30,58 @@
 }
 
 html{
-      height: 100%;
+    height: 100vh;
 }
 
 body {
-    background-color: #2e2525;
-    color:#ddd;
+    background-color: var(--bg-dark);
+    color:var(--light);
     font-family: 'Roboto-Thin', sans-serif;
-    height: 100vh;
+    
 }
 
 #wrapper .container  {
     display: grid;
     grid-template-columns: 200px auto 200px;
+    grid-template-rows: auto auto 200px;
 }
 
 #header {
     grid-column: 1/4;
     grid-row: 1/2;
     width: 100%;
-    background-color: #3b2e2e;
-    height: 200px;
+    height: 70px;
+    background-color: var(--bg);
+    line-height: 70px;
+    padding-left: 20px;
+    border-bottom: var(--light) solid 1px;
 }
 
 #main {
     grid-row: 2/3;
-    grid-column: 2/3;
-    background-color: yellow;
-    height: 100%;
+    grid-column: 2/4;
+    background-color: var(--bg-dark);
+    min-height: 810px;
 }
 
 #left-side {
     grid-row: 2/3;
     grid-column: 1/2;
-    background-color: greenyellow;
+    background-color: var(--bg);
+    border-right: var(--light) solid 1px;
 }
 
 #right-side {
     grid-row: 2/3;
     grid-column: 3/4;
-    background-color: pink;
+    background-color: var(--bg);
+    border-left: var(--light) solid 1px;
 }
 
 #footer {
     grid-column: 1/4;
-    background-color: orange;
+    background-color: var(--bg);
     min-height: 200px;
+    border-top: var(--light) solid 1px;
 }
 
