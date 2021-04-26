@@ -34,16 +34,14 @@ html{
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg);
     color:var(--light);
     font-family: 'Roboto-Thin', sans-serif;
-    
 }
 
 #wrapper .container  {
     display: grid;
     grid-template-columns: 200px auto 200px;
-    grid-template-rows: auto auto 200px;
 }
 
 #header {
@@ -59,9 +57,9 @@ body {
 
 #main {
     grid-row: 2/3;
-    grid-column: 2/4;
+    grid-column: 2/3;
     background-color: var(--bg-dark);
-    min-height: 810px;
+    height: 70vh;
 }
 
 #left-side {
@@ -80,6 +78,7 @@ body {
 
 #footer {
     grid-column: 1/4;
+    grid-row: 3/4;
     background-color: var(--bg);
     min-height: 200px;
     border-top: var(--light) solid 1px;
