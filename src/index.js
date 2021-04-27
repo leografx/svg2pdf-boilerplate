@@ -1,7 +1,4 @@
 import { svg } from './svg.js'
 
-
-
-
-
-console.log(new PDFDocument(), svg())
+const saveBtn = document.querySelector('#save-btn');
+saveBtn.addEventListener('click', svg.save);

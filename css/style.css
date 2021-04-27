@@ -1,7 +1,9 @@
 :root {
-    --bg : #3b2e2e;
-    --bg-dark: #2e2525;
+    --bg : #444444;
+    --bg-dark: #282828;
     --light:#ddd;
+    --border: #353535;
+    --primary: #2082f1;
 }
 
 @font-face {
@@ -41,7 +43,7 @@ body {
 
 #wrapper .container  {
     display: grid;
-    grid-template-columns: 200px auto 200px;
+    grid-template-columns: 300px auto 300px;
 }
 
 #header {
@@ -52,7 +54,7 @@ body {
     background-color: var(--bg);
     line-height: 70px;
     padding-left: 20px;
-    border-bottom: var(--light) solid 1px;
+    border-bottom: var(--border) solid 1px;
 }
 
 #main {
@@ -66,14 +68,14 @@ body {
     grid-row: 2/3;
     grid-column: 1/2;
     background-color: var(--bg);
-    border-right: var(--light) solid 1px;
+    border-right: var(--border) solid 1px;
 }
 
 #right-side {
     grid-row: 2/3;
     grid-column: 3/4;
     background-color: var(--bg);
-    border-left: var(--light) solid 1px;
+    border-left: var(--border) solid 1px;
 }
 
 #footer {
@@ -81,6 +83,44 @@ body {
     grid-row: 3/4;
     background-color: var(--bg);
     min-height: 200px;
-    border-top: var(--light) solid 1px;
+    border-top: var(--border) solid 1px;
+}
+
+#ready-art {
+    width: 100%;
+    padding: 10px;
+}
+
+.bleed {
+    fill:#fff;
+    stroke: red; 
+    stroke-width: 1px;
+}
+
+.primary {
+    background-color: var(--primary);
+}
+
+.btn {
+    border-style: none;
+    border-width: 0px;
+    padding: 8px;
+    color:var(--light);
+}
+
+#save-btn {
+    width:50px;
+    height: 30px;
+}
+
+#ready-container   {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#ready-art-control {
+    padding: 10px;
+    align-self: end;
+    justify-self: right;
 }
 
