@@ -4,11 +4,32 @@ export const svg = {
     }
 }
 
-const svgToPdf = (svgArt) => {
+async function registerFonts(doc) {
+    let fontRobotoLight = embedFont('fonts/Roboto-Light.otf')
+    let fontRobotoThin = embedFont('fonts/Roboto-Thin.otf')
+    let fontRobotoRegular = embedFont('fonts/Roboto-Regular.otf')
+
+    await fontRobotoLight.then(buffer => {
+        doc.registerFont('Roboto-Light', buffer);
+    });
+
+    await fontRobotoThin.then(buffer => {
+        doc.registerFont('Roboto-Thin', buffer);
+    });
+
+    await fontRobotoRegular.then(buffer => {
+        doc.registerFont('Roboto-Regular', buffer);
+    });
+}
+
+const svgToPdf = async (svgArt, w, h) => {
     const doc = new window.PDFDocument({
-        size: [270, 162],
+        size: [w, h],
         margin: 0
     });
+
+    await registerFonts(doc)
+
 
     const chunks = [];
     const stream = doc.pipe({
@@ -36,35 +57,26 @@ const svgToPdf = (svgArt) => {
         emit: (...args) => { },
     });
 
+    console.log(stream)
 
+    for (let i = 0; i < svgArt.length; i++) {
+        //doc.page.dictionary.data.TrimBox = [0, 0, 252, 144]
+        if (i > 0)
+            doc.addPage();
+        // console.log(doc, svgArt[i])
+        window.SVGtoPDF(doc, svgArt[i], 0, 0);
 
-    registerFont4svg('fonts/Roboto-Light.otf')
-        .then(response1 => response1.arrayBuffer())
-        .then(fontBuffer => {
-            doc.font(fontBuffer)
+    }
 
-            registerFont4svg('fonts/Roboto-Thin.otf')
-                .then(response2 => response2.arrayBuffer())
-                .then(fontBuffer2 => {
-                    doc.registerFont('Roboto-Light', fontBuffer)
-                    doc.registerFont('Roboto-Thin', fontBuffer2)
-                    for (let i = 0; i < svgArt.length; i++) {
-                        //doc.page.dictionary.data.TrimBox = [0, 0, 252, 144]
-                        if (i > 0)
-                            doc.addPage();
-                        // console.log(doc, svgArt[i])
-                        window.SVGtoPDF(doc, svgArt[i], 0, 0);
-
-                    }
-
-                    doc.end();
-                })
-
-        });
+    doc.end();
 }
 
 function registerFont4svg(path) {
     return fetch(path)
+}
+
+function embedFont(path) {
+    return registerFont4svg(path).then(response => response.arrayBuffer())
 }
 
 
@@ -72,11 +84,14 @@ function save2PDF(e) {
     e.preventDefault();
 
     let svgArt = document.querySelectorAll('#ready-art .layout');
-    // console.log(svgArt)
+    let viewBox = svgArt[0].getAttribute('viewBox').split(' ')
+    let w = +viewBox[2]
+    let h = +viewBox[3]
+    console.log(svgArt[0].getAttribute('viewBox').split(' '))
     let output = [];
     for (let i = 0; i < svgArt.length; i++) {
         output.push(svgArt[i].outerHTML.toString());
     }
 
-    svgToPdf(output);
+    svgToPdf(output, w, h);
 }
