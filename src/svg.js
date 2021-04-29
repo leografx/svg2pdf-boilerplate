@@ -18,10 +18,18 @@ const svgToPdf = async (svgArt, w, h) => {
         margin: 0
     });
 
-    await registerFont(doc, 'fonts/Roboto-Light.otf', 'Roboto-Light');
-    await registerFont(doc, 'fonts/Roboto-Thin.otf', 'Roboto-Thin');
-    await registerFont(doc, 'fonts/Roboto-Regular.otf', 'Roboto-Regular');
-    await registerFont(doc, 'fonts/Roboto-Bold.otf', 'Roboto-Bold');
+    await registerFont(doc, 'fonts/Roboto/Roboto-Light.otf', 'Roboto-Light');
+    await registerFont(doc, 'fonts/Roboto/Roboto-Thin.otf', 'Roboto-Thin');
+    await registerFont(doc, 'fonts/Roboto/Roboto-Regular.otf', 'Roboto-Regular');
+    await registerFont(doc, 'fonts/Roboto/Roboto-Medium.otf', 'Roboto-Medium');
+    await registerFont(doc, 'fonts/Roboto/Roboto-BoldItalic.otf', 'Roboto-BoldItalic');
+    await registerFont(doc, 'fonts/Roboto/Roboto-Black.otf', 'Roboto-Black');
+    await registerFont(doc, 'fonts/Roboto/Roboto-LightItalic.otf', 'Roboto-LightItalic');
+    await registerFont(doc, 'fonts/Roboto/Roboto-ThinItalic.otf', 'Roboto-ThinItalic');
+    await registerFont(doc, 'fonts/Roboto/Roboto-Italic.otf', 'Roboto-Italic');
+    await registerFont(doc, 'fonts/Roboto/Roboto-MediumItalic.otf', 'Roboto-MediumItalic');
+    await registerFont(doc, 'fonts/Roboto/Roboto-BoldItalic.otf', 'Roboto-BoldItalic');
+    await registerFont(doc, 'fonts/Roboto/Roboto-BlackItalic.otf', 'Roboto-BlackItalic');
 
 
     const chunks = [];
