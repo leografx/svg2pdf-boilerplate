@@ -4,21 +4,11 @@ export const svg = {
     }
 }
 
-async function registerFonts(doc) {
-    let fontRobotoLight = embedFont('fonts/Roboto-Light.otf')
-    let fontRobotoThin = embedFont('fonts/Roboto-Thin.otf')
-    let fontRobotoRegular = embedFont('fonts/Roboto-Regular.otf')
+async function registerFont(doc, path, name) {
+    let font = embedFont(path)
 
-    await fontRobotoLight.then(buffer => {
-        doc.registerFont('Roboto-Light', buffer);
-    });
-
-    await fontRobotoThin.then(buffer => {
-        doc.registerFont('Roboto-Thin', buffer);
-    });
-
-    await fontRobotoRegular.then(buffer => {
-        doc.registerFont('Roboto-Regular', buffer);
+    await font.then(buffer => {
+        doc.registerFont(name, buffer);
     });
 }
 
@@ -28,7 +18,10 @@ const svgToPdf = async (svgArt, w, h) => {
         margin: 0
     });
 
-    await registerFonts(doc)
+    await registerFont(doc, 'fonts/Roboto-Light.otf', 'Roboto-Light');
+    await registerFont(doc, 'fonts/Roboto-Thin.otf', 'Roboto-Thin');
+    await registerFont(doc, 'fonts/Roboto-Regular.otf', 'Roboto-Regular');
+    await registerFont(doc, 'fonts/Roboto-Bold.otf', 'Roboto-Bold');
 
 
     const chunks = [];
