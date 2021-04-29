@@ -141,6 +141,20 @@ h1 {
     border-bottom: var(--border) solid 1px;
 }
 
+.form-group {
+    margin: 10px;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 80px;
+}
+
+.form-group input[type=number] {
+    width: 70px;
+    text-align: center;
+}
+
 #main {
     grid-row: 2/3;
     grid-column: 2/3;
