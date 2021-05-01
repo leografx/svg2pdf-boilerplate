@@ -265,3 +265,18 @@ h1 {
     grid-template-rows: 1fr;
     justify-items: center;
 }
+
+#margin-top-bottom-container .form-group label {
+    justify-self: start;
+}
+
+#margin-left-right-container .form-group label {
+    justify-self: start;
+}
+
+.form-group input {
+    background-color: var(--bg-dark);
+    color: var(--light);
+    border-style: none;
+    line-height: 24px;
+}
