@@ -1,9 +1,12 @@
 const margins = document.querySelectorAll('.margins')
-const isLinkedBtn = document.querySelector('#margin-link');
+const bleeds = document.querySelectorAll('.bleeds')
+const isMarginLinkedBtn = document.querySelector('#margin-link');
+const isBleedLinkedBtn = document.querySelector('#bleed-link');
+
 
 export let props = {
 
-    toggleLinkMargin: function(e) {
+    toggleLink: function(e) {
 
         if (e.target.getAttribute('src') === "assets/link-01.svg") {
             e.target.setAttribute('src', 'assets/broken-link.svg')
@@ -17,8 +20,15 @@ export let props = {
 
     },
     changeMargins: function(e) {
-        if (isLinkedBtn.getAttribute('alt') === 'link') {
+        if (isMarginLinkedBtn.getAttribute('alt') === 'link') {
             margins.forEach(element => {
+                element.value = e.target.value;
+            });
+        }
+    },
+    changeBleeds: function(e) {
+        if (isBleedLinkedBtn.getAttribute('alt') === 'link') {
+            bleeds.forEach(element => {
                 element.value = e.target.value;
             });
         }
